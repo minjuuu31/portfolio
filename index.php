@@ -1,12 +1,12 @@
 <?php
-//現在の年と月の取得
- $ym = mb_convert_kana(filter_input(INPUT_GET, 'ym'), 'n');//受け取った年月の情報を念のために半角に変換する
-if(!$ym){
-  $year = date('Y');
-  $month = date('m');
-    } else{
-      list($year, $month) = explode('-', $ym);
-    }
+
+require_once 'Calendar/Calendar.php';
+
+function h($s){
+  return htmlspecialchars($s, ENT_QUOTES, 'UTF-8');
+}
+
+$cal = new Calendar();
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -24,7 +24,7 @@ if(!$ym){
  <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
  <script type="text/javascript" src="http://code.jquery.com/jquery-2.2.3.min.js"></script>
  <script src="common/js/jquery.stickystack.min.js"></script>
- <link rel="stylesheet" href="common/css/style.css">
+ <link rel="stylesheet" type="text/css" href="common/css/style.css">
  <meta name="viewport" content="width=device-width,initial-scale=1">
  <title>furano organic-cafe</title>
 </head>
@@ -60,12 +60,14 @@ if(!$ym){
 
           <!--menu-->
 
+          <!-- ******************************
+              PHPカレンダー
+          *******************************-->
           <div class="contents-box" id="shop-news">
             <p class="contents-title"><i class="fas fa-square-full title-sq"></i>shop news</p>
             <h2 id="news-title">小麦と小豆の１日店長</h2>
 
             <div class="inner-box" id="news-box">
-
               <div class="news-inner">
                  <div class="news-list">
                     <p class="news-img" id="komugi"><img src="common/img/komugi-a.jpg"></p>
@@ -86,57 +88,31 @@ if(!$ym){
                  </div>
               </div>
 
-              <!-- ******************************
-                PHPカレンダー
-                *******************************-->
               <div class="news-inner">
-                <div id="calender-box">
-                <h3><?php echo "{$year}年{$month}月", PHP_EOL; ?></h3>
-                    <table id="c-table">
-                        <tr>
-                            <th class="weekday">日</th>
-                            <th class="weekday">月</th>
-                            <th class="weekday">火</th>
-                            <th class="weekday">水</th>
-                            <th class="weekday">木</th>
-                            <th class="weekday">金</th>
-                            <th class="weekday">土</th>
-                        </tr>
-                        <?php
-                        $count = 0; //マス目の表示をするための変数
-                        echo '<tr>', PHP_EOL; //行の開始
-                      
-                        $week_start = date('w', strtotime("{$year}-{$month}-01")); //その年月の初めの曜日の数値を取得して変数に代入
-                        for($j = 0; $j < $week_start; $j++){//2019-05-01の開始位置より前のセルに空白を入れ、埋める
-                          echo '<td>&nbsp;</td>', PHP_EOL;
-                        }
-                      
-                        $count += $week_start;//マス目のカウント用$countと2019-05-01の曜日の数値を持っている$week_startを加算
-                      
-                        for($i = 1; $i <= date('t', strtotime("{$year}-{$month}")); $i++){//その年月から末日まで処理を繰り返す
-                        echo '<td class="text-center">' . $i . '</td>', PHP_EOL;//セルに日付を出力する
-                        $count++;//マス目のカウントを1つ繰り上げる
-                        if($count % 7 === 0){//マス目のカウントが7の倍数の時にtrを閉じてtrを開く
-                          echo '</tr>', PHP_EOL;
-                          echo '<tr>', PHP_EOL;  
-                        }
-                       }
-                        $day_end = date('t', strtotime("{$year}-{$month}"));//その年月の末日の情報を取得し変数に代入
-                        $week_end = date('w', strtotime("{$year}-{$month}-{$day_end}"));//その年月の末日の数値を取得して変数に代入
-                        for($i = $week_end; $i < 6; $i++){//2019-05-31以降に残っているセルを空白で埋める
-                          echo '<td>&nbsp;</td>', PHP_EOL;
-                        }
-                        echo '</tr>', PHP_EOL;//一番最後にtrを閉じる必要があるのでここで出力する
-                       ?>
-                       </table>
-                                          </table>
-                 </div>
-              </div>
-              <!--************************************-->
+                    <table id="calendar-table">
+                          <tr>
+                            <th><a href="/minju/index.php?t=<?php echo h($cal->prev); ?>" class="page"><i class="fa fa-arrow-left"></i></a></th>
+                            <th colspan="5"><?php echo $cal->yearMonthCaption; ?></th>
+                            <th><a href="/minju/index.php?t=<?php echo h($cal->next); ?>" class="page"><i class="fa fa-arrow-right"></i></a></th>
+                            </tr>
+                          <tr>
+                            <td>日</td>
+                            <td>月</td>
+                            <td>火</td>
+                            <td>水</td>
+                            <td>木</td>
+                            <td>金</td>
+                            <td class="week_6">土</td>
+                          </tr>
+                          <?php $cal->show(); ?>
+                    </table>
+                </div>
             </div>
           </div>
 
-
+          <!--**************************
+          cafe
+          ****************************-->
           <div class="contents-box" id="cafe">
             <p class="contents-title"><i class="fas fa-square-full title-sq"></i>cafe menu</p>
 

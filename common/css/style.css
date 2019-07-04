@@ -273,17 +273,12 @@ shop news
     font-size: 1rem;
 }
 
-#calender-box {
+#calendar-table {
     width: 80%;
-    height: 520px;
     margin: 0 auto;
-    background-image: url(../img/bcgImage6].jpg);
+    background-image: url(../img/bcgImage9.jpg);
 }
 
-#c-table {
-    width: 80%;
-    margin: 0 auto;
-}
 /*/////////////////////////////////
 cafe
 ////////////////////////////////*/
