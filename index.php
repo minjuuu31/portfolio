@@ -7,6 +7,8 @@ function h($s){
 }
 
 $cal = new Calendar();
+
+//$path = $_SERVER['DOCUMENT_ROUT', '/id=shop-news'];
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -21,6 +23,7 @@ $cal = new Calendar();
  <link href="https://fonts.googleapis.com/css?family=Bree+Serif|Open+Sans+Condensed:300|Patrick+Hand&display=swap" rel="stylesheet">
  <link href="https://fonts.googleapis.com/css?family=Bree+Serif|Lora|Open+Sans+Condensed:300|Patrick+Hand|Slabo+27px|Yrsa&display=swap" rel="stylesheet">
  <link href="https://fonts.googleapis.com/css?family=Kosugi+Maru&display=swap" rel="stylesheet">
+ <link href="https://fonts.googleapis.com/css?family=Amatic+SC|Averia+Serif+Libre|Lato|Montserrat|Satisfy|Special+Elite&display=swap" rel="stylesheet">
  <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
  <script type="text/javascript" src="http://code.jquery.com/jquery-2.2.3.min.js"></script>
  <script src="common/js/jquery.stickystack.min.js"></script>
@@ -72,18 +75,18 @@ $cal = new Calendar();
                  <div class="news-list">
                     <p class="news-img" id="komugi"><img src="common/img/komugi-a.jpg"></p>
                     <ul class="news-ul">
-                      <li class="news-li">小麦（女の子）</li>
-                      <li class="news-li">12月25日生まれ</li>
-                      <li class="news-li">ちょっとわがままだけど甘えん坊さんです。</li>
+                      <li class="news-li"><p class="li-p"><i class="fas fa-paw dog-ic"></i>小麦（女の子）</p></li>
+                      <li class="news-li"><p class="li-p"><i class="fas fa-paw dog-ic"></i>12月25日生まれ</p></li>
+                      <li class="news-li"><p class="li-p"><i class="fas fa-paw dog-ic"></i>ちょっとわがままな甘えん坊さんです。</p></li>
                     </ul>
                  </div>
 
                  <div class="news-list">
                     <p class="news-img"><img src="common/img/azuki-a.jpg" id="img-azuki"></p>
                     <ul class="news-ul">
-                      <li class="news-li">小豆（女の子）</li>
-                      <li class="news-li">9月26日生まれ</li>
-                      <li class="news-li">肩に乗るのが大好きな甘えん坊さん。<br>食いしん坊です。</li>
+                      <li class="news-li"><p class="li-p"><i class="fas fa-paw dog-ic"></i>小豆（女の子）</p></li>
+                      <li class="news-li"><p class="li-p"><i class="fas fa-paw dog-ic"></i>9月26日生まれ</p></li>
+                      <li class="news-li"><p class="li-p"><i class="fas fa-paw dog-ic"></i>肩に乗るのが大好きな甘えん坊さん。</p></li>
                     </ul>
                  </div>
               </div>
@@ -91,18 +94,21 @@ $cal = new Calendar();
               <div class="news-inner">
                     <table id="calendar-table">
                           <tr>
-                            <th><a href="/minju/index.php?t=<?php echo h($cal->prev); ?>" class="page"><i class="fa fa-arrow-left"></i></a></th>
-                            <th colspan="5"><?php echo $cal->yearMonthCaption; ?></th>
-                            <th><a href="/minju/index.php?t=<?php echo h($cal->next); ?>" class="page"><i class="fa fa-arrow-right"></i></a></th>
+                            <th colspan="7" id="c-year"><?php echo $cal->yearY; ?></th>
+                          </tr>
+                          <tr class="c-tr">
+                            <th><a href="/sample/index.php/id=shop-news?t=<?php echo h($cal->prev); ?>" class="page"><i class="fas fa-caret-left"></i></a></th>
+                            <th colspan="5" id="c-month"><?php echo $cal->yearMonthCaption; ?></th>
+                            <th class="c-rightIcon"><a href="/minju/index.php/id=shop-news?t=<?php echo h($cal->next); ?>" class="page"><i class="fas fa-caret-right"></i></a></th>
                             </tr>
-                          <tr>
-                            <td>日</td>
-                            <td>月</td>
-                            <td>火</td>
-                            <td>水</td>
-                            <td>木</td>
-                            <td>金</td>
-                            <td class="week_6">土</td>
+                          <tr class="c-w">
+                            <td>Sun</td>
+                            <td>Mon</td>
+                            <td>Tue</td>
+                            <td>Wed</td>
+                            <td>Thu</td>
+                            <td>Fri</td>
+                            <td>Sat</td>
                           </tr>
                           <?php $cal->show(); ?>
                     </table>

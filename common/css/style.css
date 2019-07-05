@@ -232,7 +232,7 @@ shop news
 
 #news-title {
     width: 35%;
-    margin: 5% auto;
+    margin: 5% auto 10%;
     border-bottom: solid 3px rgb(80, 54, 21);
     padding-bottom: 1%;
 }
@@ -248,8 +248,15 @@ shop news
 .news-list {
     display: flex;
     width: 100%;
+    margin-bottom: 15%;
     padding-left: 5%;
     box-sizing: border-box;
+}
+
+.dog-ic {
+    font-size: 1.3rem;
+    margin-right: 2%;
+    color: rgba(122, 64, 16, 0.4);
 }
 
 .news-img {
@@ -271,14 +278,71 @@ shop news
 
 .news-li {
     font-size: 1rem;
+    color: rgb(65, 38, 30);
+}
+
+.li-p {
+    display: flex;
 }
 
 #calendar-table {
+    font-size: 1.2rem;
+    padding: 5%;
     width: 80%;
+    height: 500px;
     margin: 0 auto;
     background-image: url(../img/bcgImage9.jpg);
 }
 
+#c-year,
+#c-month,
+#c-w {
+    font-family: 'Amatic SC', cursive;
+    font-family: 'Satisfy', cursive;
+    font-family: 'Special Elite', cursive;
+    font-family: 'Lato', sans-serif;
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Averia Serif Libre', cursive;
+}
+
+#c-year {
+    text-align: center;
+    font-size: 1.2rem;
+    vertical-align: bottom;
+}
+
+#c-month {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.c-rightIcon {
+    text-align: right;
+}
+
+.c-tr {
+    vertical-align: text-top;
+}
+
+.c-w {
+    font-size: 1rem;
+}
+
+.wed {
+    position: relative;
+    z-index: 1;
+}
+
+.wed::before {
+    content: '\f1b0';
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    color: rgba(122, 64, 16, 0.4);
+    position: absolute;
+    top: 20%;
+    z-index: 0;
+}
 /*/////////////////////////////////
 cafe
 ////////////////////////////////*/
@@ -346,7 +410,7 @@ h1 {
 
 #about-imgbox {
     width: 70%;
-    margin: 0 auto 10px;
+    margin: 0 auto;
     position: relative;
 }
 
@@ -386,13 +450,13 @@ h1 {
 .about-h2 {
     font-size: 1rem;
     text-align: center;
+    margin-bottom: 10%;
     font-family: 'Open Sans Condensed', sans-serif;
     font-family: 'Bree Serif', serif;
     font-family: 'Patrick Hand', cursive;
     font-family: 'Yrsa', serif;
     font-family: 'Slabo 27px', serif;
     font-family: 'Lora', serif;
-    margin-bottom: 10%;
 }
 
 .about-imgfilter {
@@ -420,6 +484,9 @@ h1 {
     font-size: 1rem;
     letter-spacing: 0.1em;
     text-align: left;
+    font-family: 'Kosugi Maru', sans-serif;
+    line-height: 1.5em;
+    color: rgb(65, 38, 30);
 }
 
 /*/////////////////////////////////////////

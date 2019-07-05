@@ -8,14 +8,17 @@ class Calendar
   public $next;
   public $yearMonth;
   public $yearMonthCaption;
+  public $yearY;
   private $_thisMonth;
+
+
+  public $path;
+
 
   // コンストラクタ
   public function __construct()
   {
-    // 例外処理
     try {
-      // GETの情報がない場合、XXXX-XXではない場合
       if (!isset($_GET['t']) || !preg_match('/\A\d{4}-\d{2}\z/', $_GET['t'])) {
         throw new \Exception();
       }
@@ -31,7 +34,8 @@ class Calendar
     $this->next = $this->_createNextLink();
     // ある月の情報から年と月の情報を取得する
     $this->yearMonth = $this->_thisMonth->format('F Y');
-    $this->yearMonthCaption = $this->_thisMonth->format('F Y');
+    $this->yearMonthCaption = $this->_thisMonth->format('F');
+    $this->yearY = $this->_thisMonth->format('Y');
   }
 
   // メソッドの定義
@@ -94,9 +98,12 @@ class Calendar
       // 日付の情報が0であればtrタグを閉じて開く
       if ($day->format('w') === '0') {
         $body .= '</tr><tr>'. PHP_EOL;
+      } 
+      if ($day->format('w') === '3'){
+        $body .= sprintf('<td class="week_%d wed">%d</td>'. PHP_EOL, $day->format('w'), $day->format('d'));
+      } else {
+        $body .= sprintf('<td class="week_%d">%d</td>'. PHP_EOL, $day->format('w'), $day->format('d'));
       }
-      // 日付の情報をformatメソッドで出力
-      $body .= sprintf('<td class="week_%d">%d</td>'. PHP_EOL, $day->format('w'), $day->format('d'));
     }
     return $body;
   }
@@ -113,4 +120,10 @@ class Calendar
     }
     return $head;
   }
+
+  /*public function path() {
+    $path = __FILE__;
+    $mypath = $path, '/id=shop-news';
+  }
+  return path;*/
 }
