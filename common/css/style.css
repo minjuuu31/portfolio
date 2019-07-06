@@ -409,24 +409,13 @@ h1 {
 }
 
 #about-imgbox {
-    width: 70%;
+    width: 60%;
     margin: 0 auto;
-    position: relative;
 }
 
 #about-mainImg {
     width: 100%;
     height: auto;
-}
-
-#about-imgbox::after {
-    content: '';
-    background-color: rgba(222, 184, 134, 0.5);
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
 }
 
 #about-innerbox {
@@ -462,21 +451,10 @@ h1 {
 .about-imgfilter {
     width: 100%;
     margin: 0 auto;
-    position: relative;
-}
-
-.about-imgfilter::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    background-color: rgba(222, 184, 134, 0.2);
 }
 
 .about-innerImg {
-    width: 80%;
+    width: 100%;
     height: auto;
 }
 

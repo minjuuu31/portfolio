@@ -292,12 +292,12 @@ $cal = new Calendar();
   
               <div class="inner-box">
                 <h1>ゆったりとした時間をおくつろぎください・・・<i class="fas fa-coffee coffee-ic"></i></h1>
-                <div id="about-imgbox"><img src="common/img/cafe4-re.png" id="about-mainImg"></div>
+                <div id="about-imgbox"><img src="common/img/about-img2.jpg" id="about-mainImg"></div>
 
                 <div id="about-innerbox">
                   <div class="about-inner">
                       <h2 class="about-h2">Coffee</h2>
-                      <div class="about-imgfilter"><img src="common/img/cofeebean.png" class="about-innerImg"></div>
+                      <div class="about-imgfilter"><img src="common/img/cofeebean-img.jpg" class="about-innerImg"></div>
                       <p class="about-text">上富良野のゆったりとした空気にぴったりな雰囲気の当店。オーナー自ら焙煎したコーヒーの香りをお楽しみください。お好みでブレンドもいたしますので、お気軽にお声かけください。オリジナルコーヒーは日替わりとなります。</p>
                   </div>
 
