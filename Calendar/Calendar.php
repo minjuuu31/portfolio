@@ -123,7 +123,7 @@ class Calendar
 
   /*public function path() {
     $path = __FILE__;
-    $mypath = $path, '/id=shop-news';
+    $mypath = path($path, '/id=shop-news');
   }
-  return path;*/
-}
+  return $mypath;
+}*/

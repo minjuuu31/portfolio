@@ -8,7 +8,7 @@ function h($s){
 
 $cal = new Calendar();
 
-//$path = $_SERVER['DOCUMENT_ROUT', '/id=shop-news'];
+$path = include( $_SERVER['DOCUMENT_ROOT'] . '/index.php');
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -68,7 +68,7 @@ $cal = new Calendar();
           *******************************-->
           <div class="contents-box" id="shop-news">
             <p class="contents-title"><i class="fas fa-square-full title-sq"></i>shop news</p>
-            <h2 id="news-title">小麦と小豆の１日店長</h2>
+            <h2 id="news-title">小麦と小豆の１日店長<span id="born-sp"><i class="fas fa-bone born-ic"></i></span></h2>
 
             <div class="inner-box" id="news-box">
               <div class="news-inner">
@@ -97,7 +97,7 @@ $cal = new Calendar();
                             <th colspan="7" id="c-year"><?php echo $cal->yearY; ?></th>
                           </tr>
                           <tr class="c-tr">
-                            <th><a href="/sample/index.php/id=shop-news?t=<?php echo h($cal->prev); ?>" class="page"><i class="fas fa-caret-left"></i></a></th>
+                            <th><a href="<?php echo {$path}; ?>id=shop-news?t=<?php echo h($cal->prev); ?>" class="page"><i class="fas fa-caret-left"></i></a></th>
                             <th colspan="5" id="c-month"><?php echo $cal->yearMonthCaption; ?></th>
                             <th class="c-rightIcon"><a href="/minju/index.php/id=shop-news?t=<?php echo h($cal->next); ?>" class="page"><i class="fas fa-caret-right"></i></a></th>
                             </tr>
@@ -303,7 +303,7 @@ $cal = new Calendar();
 
                   <div class="about-inner">
                       <h2 class="about-h2">Organic Vegetables</h2>
-                      <div class="about-imgfilter"><img src="common/img/bargerImag.png" class="about-innerImg"></div>
+                      <div class="about-imgfilter"><img src="common/img/barger-img.jpg" class="about-innerImg"></div>
                       <p class="about-text">地元（上富良野）の農家さんで当日採れた野菜を使用。無農薬の新鮮な富良野野菜たちを使った、オーガニック料理をぜひご堪能ください。</p>
                   </div>
                 </div>
